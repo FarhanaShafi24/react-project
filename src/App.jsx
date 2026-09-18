@@ -29,6 +29,8 @@ export default App;*/
 import "./App.css";
 import Navbar from "./components/navbar";
 import Hero from "./components/Hero";
+import EventSection from "./components/EventSection";
+import Footer from "./components/Footer";
 function App(){
   return(
     <div>
@@ -36,8 +38,9 @@ function App(){
       <main id="home">
 
         <Hero/>
+        <EventSection/>
       </main>
-      
+       <Footer/>
     </div>
   );
 }
