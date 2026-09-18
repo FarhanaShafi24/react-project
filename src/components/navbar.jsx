@@ -28,3 +28,4 @@ function navbar(){
         </nav>
     );
 }
+export default navbar;

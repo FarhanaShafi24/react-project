@@ -27,14 +27,15 @@ function App(){
 export default App;*/
 
 import "./App.css";
-import Navbar from "./compenents/navbar";
+import Navbar from "./components/navbar";
+import Hero from "./components/Hero";
 function App(){
   return(
     <div>
       <Navbar />
       <main id="home">
-        <h1>Campus Connect</h1>
-        <p>Welcome to college Events and Clubs</p>
+
+        <Hero/>
       </main>
       
     </div>
