@@ -26,22 +26,132 @@ function App(){
 }
 export default App;*/
 
+// import "./App.css";
+// import Navbar from "./components/navbar";
+// import Hero from "./components/Hero";
+// import EventSection from "./components/EventSection";
+// import Footer from "./components/Footer";
+// import EventCard from "./components/EventCard";
+// function App(){
+//   return(
+//     <div>
+//       <Navbar />
+//       <main id="home">
+
+//         <Hero/>
+//         <EventSection/>
+//       </main>
+//        <Footer/>
+//     </div>
+//   );
+// }
+// export default App;
+
+// import { useState } from "react";
+// import { Routes, Route } from "react-router";
+// import "./App.css";
+// import Navbar from "./components/navbar";
+// import Footer from "./components/Footer";
+// import HomePage from "./pages/HomePage";
+// import EventsPage from "./pages/EventsPage";
+// import AboutPage from "./pages/AboutPage";
+// import { initialEvents } from "./Data/events";
+
+// function App() {
+//   const [events, setEvents] = useState(initialEvents);
+
+//   function handleAddEvent(newEvent) {
+//     setEvents([...events, newEvent]);
+//   }
+
+//   return (
+//     <div>
+//       <Navbar />
+
+//       <Routes>
+//         <Route
+//           path="/"
+//           element={
+//             <HomePage events={events} onAddEvent={handleAddEvent} />
+//           }
+//         />
+
+//         <Route path="/events" element={<EventsPage events={events} />} />
+
+//         <Route path="/about" element={<AboutPage />} />
+//       </Routes>
+
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+//  
+
+import { useState } from "react";
+import { Routes, Route } from "react-router";
+
 import "./App.css";
+
 import Navbar from "./components/navbar";
-import Hero from "./components/Hero";
-import EventSection from "./components/EventSection";
 import Footer from "./components/Footer";
-function App(){
-  return(
+
+import HomePage from "./pages/HomePage";
+import EventsPage from "./pages/EventsPage";
+import EventDetailsPage from "./pages/EventDetailPages";
+import AboutPage from "./pages/AboutPage";
+
+import { initialEvents } from "./Data/events";
+
+function App() {
+  const [events, setEvents] = useState(initialEvents);
+
+  function handleAddEvent(newEvent) {
+    setEvents([...events, newEvent]);
+  }
+
+  return (
     <div>
       <Navbar />
-      <main id="home">
 
-        <Hero/>
-        <EventSection/>
-      </main>
-       <Footer/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              events={events}
+              onAddEvent={handleAddEvent}
+            />
+          }
+        />
+
+        <Route
+          path="/events"
+          element={
+            <EventsPage events={events} />
+          }
+        />
+
+        <Route
+          path="/events/:eventId"
+          element={
+            <EventDetailsPage events={events} />
+          }
+        />
+
+        <Route
+          path="/about"
+          element={<AboutPage />}
+        />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
+
 export default App;
