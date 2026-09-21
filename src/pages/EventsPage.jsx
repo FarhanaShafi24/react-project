@@ -1,6 +1,6 @@
 import EventSection from "../components/EventSection";
 
-function EventsPage({ events }) {
+function EventsPage({ events ,onDeleteEvent }){
   return (
     <>
       <section className="page-heading">
@@ -13,7 +13,9 @@ function EventsPage({ events }) {
         </p>
       </section>
 
-      <EventSection events={events} />
+      <EventSection events={events}
+       onDeleteEvent={onDeleteEvent} />
+     
     </>
   );
 }
