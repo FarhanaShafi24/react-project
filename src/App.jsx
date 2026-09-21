@@ -93,7 +93,7 @@ export default App;*/
 //  
 
 import { useState } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -111,7 +111,10 @@ function App() {
   const [events, setEvents] = useState(initialEvents);
 
   function handleAddEvent(newEvent) {
-    setEvents([...events, newEvent]);
+    setEvents((currentEvents) => [
+      ...currentEvents,
+      newEvent,
+    ]);
   }
 
   return (
@@ -131,16 +134,12 @@ function App() {
 
         <Route
           path="/events"
-          element={
-            <EventsPage events={events} />
-          }
+          element={<EventsPage events={events} />}
         />
 
         <Route
           path="/events/:eventId"
-          element={
-            <EventDetailsPage events={events} />
-          }
+          element={<EventDetailsPage events={events} />}
         />
 
         <Route

@@ -1,21 +1,18 @@
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 
 function EventDetailPages({ events }) {
   const { eventId } = useParams();
 
-  const selectedEvent = events.find(function (event) {
-    return event.id === Number(eventId);
-  });
+  const selectedEvent = events.find(
+    (event) => event.id === Number(eventId)
+  );
 
-  if (selectedEvent === undefined) {
+  if (!selectedEvent) {
     return (
       <section className="page-heading">
         <h1>Event Not Found</h1>
 
-        <Link
-          className="details-button"
-          to="/events"
-        >
+        <Link className="details-button" to="/events">
           Back to Events
         </Link>
       </section>
@@ -44,15 +41,11 @@ function EventDetailPages({ events }) {
         </p>
 
         <p>
-          <strong>Location:</strong>{" "}
-          {selectedEvent.location}
+          <strong>Location:</strong> {selectedEvent.location}
         </p>
       </div>
 
-      <Link
-        className="details-button"
-        to="/events"
-      >
+      <Link className="details-button" to="/events">
         Back to Events
       </Link>
     </section>
